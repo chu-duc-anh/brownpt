@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BrownStore</title>
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+.user-welcome {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+#welcomeBtn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+    </style>
+  </head>
+  <body>
+    <div class="user-welcome">
+        <button id="welcomeBtn">Xin chào, BH01254</button>
+    </div>
+    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="cartModalLabel">Shopping Cart</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="cartItems"></div>
+                    <p>Total: <span id="totalPrice">0</span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="checkoutBtn">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Đặt id cho nút "Add to cart" để dễ dàng tìm trong JavaScript -->
+    <div class="product-hover">
+        <!-- Đặt id "add-to-cart" cho nút -->
+        <a href="#" class="add-to-cart-link" id="add-to-cart"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+        <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+    </div>
+
+    <div id="user-email" class="user-email"></div>
+    <div class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="user-menu">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
+                            <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
+                            <li><a href="#"><i class="fa fa-user"></i> My Cart</a></li>
+                            <li><a href="#"><i class="fa fa-user"></i> Checkout</a></li>
+                            <li><a href="signin.html"><i class="fa fa-user"></i> Login</a></li>
+                        </ul>
+                    </div>
+                </div>           
+                <!-- End header area -->   
+    <div class="site-branding-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                </div>
+                
+                <div class="col-sm-6">
+                    <div class="shopping-item">
+                        <a href="#" id="cart-link">Cart - <span id="total-amount" class="cart-amunt"></span> <i class="fa fa-shopping-cart"></i> <span id="cart-count" class="product-count">0</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End site branding area -->   
+    <div class="mainmenu-area">
+        <div class="container">
+            <div class="row">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div> 
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop page</a></li>
+                        <li><a href="single-product.html">Single product</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="#">Checkout</a></li>
+                        <li><a href="#">Category</a></li>
+                        <li><a href="#">Others</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>  
+            </div>
+        </div>
+    </div> <!-- End mainmenu area -->   
+    <div class="slider-area">
+        	<!-- Slider -->
+			<div class="block-slider block-slider4">
+				<ul class="" id="bxslider-home4">
+					<li>
+						<img src="img/h4-slide.png" alt="Slide">
+						<div class="caption-group">
+							<h2 class="caption title">
+								iPhone <span class="primary">15 <strong>Promax</strong></span>
+							</h2>
+							<h4 class="caption subtitle">LUXURY</h4>
+							<a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
+						</div>
+					</li>
+					<li><img src="img/h4-slide2.png" alt="Slide">
+						<div class="caption-group">
+							<h2 class="caption title">
+								by one, get one <span class="primary">50% <strong>off</strong></span>
+							</h2>
+							<h4 class="caption subtitle">school supplies & backpacks.*</h4>
+							<a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
+						</div>
+					</li>
+					<li><img src="img/h4-slide3.jpg" alt="Slide">
+						<div class="caption-group">
+							<h2 class="caption title">
+								Apple <span class="primary">Store <strong>VietNam</strong></span>
+							</h2>
+							<h4 class="caption subtitle">Select Item</h4>
+							<a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
+						</div>
+					</li>
+					<li><img src="img/h4-slide4.jpg" alt="Slide">
+						<div class="caption-group">
+						  <h2 class="caption title">
+								iPhone <span class="primary">11 <strong>Best Seller</strong></span>
+							</h2>
+							<h4 class="caption subtitle">& Phone</h4>
+							<a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!-- ./Slider -->
+    </div> <!-- End slider area -->   
+    <div class="promo-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo1">
+                        <i class="fa fa-refresh"></i>
+                        <p>30 Days return</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo2">
+                        <i class="fa fa-truck"></i>
+                        <p>Free shipping</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo3">
+                        <i class="fa fa-lock"></i>
+                        <p>Secure payments</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo4">
+                        <i class="fa fa-gift"></i>
+                        <p>New products</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End promo area --> 
+    <div class="maincontent-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="latest-product">
+                        <h2 class="section-title">Latest Products</h2>
+                        <div class="product-carousel">
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img src="img/product-1.jpg" alt="">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                    </div>
+                                </div>
+                                
+                                <h2><a href="single-product.html">iPhone 15 Promax</a></h2>
+                                
+                                <div class="product-carousel-price">
+                                    <ins>30.990k</ins> <del>34.990k</del>
+                                </div> 
+                            </div>
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img src="img/product-2.jpg" alt="">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                    </div>
+                                </div>
+                                
+                                <h2>iPhone 15 Plus</h2>
+                                <div class="product-carousel-price">
+                                    <ins>20.990k</ins> <del>23.990k</del>
+                                </div> 
+                            </div>
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img src="img/product-3.jpg" alt="">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                    </div>
+                                </div>
+                                
+                                <h2>iPhone 14 Promax</h2>
+
+                                <div class="product-carousel-price">
+                                    <ins>27.990k</ins> <del>34.990k</del>
+                                </div>                                 
+                            </div>
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img src="img/product-4.jpg" alt="">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                    </div>
+                                </div>
+                                
+                                <h2><a href="single-product.html">iPhone 11</a></h2>
+
+                                <div class="product-carousel-price">
+                                    <ins>8.990k</ins> <del>12.490k</del>
+                                </div>                            
+                            </div>
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img src="img/product-5.jpg" alt="">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                    </div>
+                                </div>
+                                
+                                <h2>iPhone 12 Promax</h2>
+
+                                <div class="product-carousel-price">
+                                    <ins>13.490k</ins> <del>18.990k</del>
+                                </div>                                 
+                            </div>
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img src="img/product-6.jpg" alt="">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                    </div>
+                                </div>
+                                
+                                <h2><a href="single-product.html">iPhone 13 Promax</a></h2>
+
+                                <div class="product-carousel-price">
+                                    <ins>15.490k</ins>
+                                </div>                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End main content area -->
+    <div class="footer-top-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-about-us">
+                        <h2>Brown<span>Store</span></h2>
+                        <a href="https://www.facebook.com/buntom.0409/" target="_blank"><i class="fa fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-menu">
+                        <h2 class="footer-wid-title">User Navigation </h2>
+                        <ul>
+                            <li><a href="account.html">My account</a></li>
+                            <li><a href="#">Order history</a></li>
+                            <li><a href="#">Wishlist</a></li>
+                            <li><a href="#">Vendor contact</a></li>
+                            <li><a href="#">Front page</a></li>
+                        </ul>                        
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-menu">
+                        <h2 class="footer-wid-title">Categories</h2>
+                        <ul>
+                            <li><a href="#">Mobile Phone</a></li>
+                            <li><a href="#">Home accesseries</a></li>
+                            <li><a href="#">LED TV</a></li>
+                            <li><a href="#">Computer</a></li>
+                            <li><a href="#">Gadets</a></li>
+                        </ul>                        
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-newsletter">
+                        <h2 class="footer-wid-title">Newsletter</h2>
+                        <div class="newsletter-form">
+                            <form action="#">
+                                <input type="email" placeholder="Type your email">
+                                <input type="submit" value="Subscribe">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End footer top area -->
+    
+    <div class="footer-bottom-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="copyright">
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="footer-card-icon">
+                        <i class="fa fa-cc-discover"></i>
+                        <i class="fa fa-cc-mastercard"></i>
+                        <i class="fa fa-cc-paypal"></i>
+                        <i class="fa fa-cc-visa"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End footer bottom area -->
+    
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/jquery.easing.1.3.min.js"></script>
+    <script src="js/main.js"></script>
+    <script type="text/javascript" src="js/bxslider.min.js"></script>
+	<script type="text/javascript" src="js/script.slider.js"></script>
+    <script>
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var cartLink = document.getElementById("cart-link");
+    var cartContainer = document.querySelector(".cart-container");
+    var closeCartBtn = document.getElementById("close-cart");
+    var totalPriceDiv = document.getElementById("total-price");
+    var totalAmountSpan = document.getElementById("total-amount");
+    var cartCountSpan = document.getElementById("cart-count");
+    var totalPrice = 0;
+    var totalItems = 0;
+
+    cartLink.addEventListener("click", function() {
+        cartContainer.classList.toggle("open");
+    });
+
+    closeCartBtn.addEventListener("click", function() {
+        cartContainer.classList.remove("open");
+    });
+
+    var cartIcons = document.querySelectorAll(".Cloudfee .price a");
+
+    cartIcons.forEach(function(icon) {
+        icon.addEventListener("click", function(e) {
+            e.preventDefault();
+
+            var productContainer = icon.closest(".Cloudfee");
+            var productName = productContainer.querySelector(".des span").textContent;
+            var productPrice = parseFloat(productContainer.querySelector(".price span").textContent.replace("đ", "").replace(",", ""));
+
+            // Create cart item
+            var cartItem = document.createElement('div');
+            cartItem.classList.add('cart-item');
+            cartItem.innerHTML = `
+                <p>${productName}</p>
+                <p>${productPrice},000đ</p>
+                <button class="remove-item">Xóa</button>
+            `;
+
+            // Append cart item to cart content
+            var cartContent = document.querySelector('.cart-content');
+            cartContent.appendChild(cartItem);
+
+            totalPrice += productPrice;
+            totalItems++;
+            totalPriceDiv.innerText = `Tổng tiền: ${totalPrice},000đ`;
+            totalAmountSpan.innerText = `${totalPrice},000đ`;
+            cartCountSpan.innerText = totalItems;
+
+            // Add event listener for remove item button
+            var removeItemBtn = cartItem.querySelector('.remove-item');
+            removeItemBtn.addEventListener('click', function() {
+                cartItem.remove();
+                totalPrice -= productPrice;
+                totalItems--;
+                totalPriceDiv.innerText = `Tổng tiền: ${totalPrice},000đ`;
+                totalAmountSpan.innerText = `${totalPrice},000đ`;
+                cartCountSpan.innerText = totalItems;
+            });
+        });
+    });
+});
+
+    </script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <!-- Bootstrap JavaScript -->
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ <!-- Your custom JavaScript -->
+ <script>
+$(document).ready(function(){
+    var totalPrice = 0;
+
+    // Add to cart event
+    $(".add-to-cart-link").click(function(e){
+        e.preventDefault();
+        var productName = $(this).closest(".single-product").find("h2").text();
+        var productPrice = $(this).closest(".single-product").find(".product-carousel-price ins").text();
+        totalPrice += parseFloat(productPrice.replace("k", "")); // Remove "k" and convert to float
+        $("#cartItems").append('<div class="cart-item">' +
+                                  '<p>' + productName + ' - ' + productPrice + '</p>' +
+                                  '<button class="btn btn-danger remove-item">Remove</button>' +
+                              '</div>');
+        $("#totalPrice").text((totalPrice.toFixed(3)) + "K"); // Fixed to 3 decimal places with "K" unit
+        // Show success message
+        alert(productName + ' has been added to your cart.');
+    });
+
+    // Show cart modal
+    $("#cart-link").click(function(e){
+        e.preventDefault();
+        $("#cartModal").modal("show");
+    });
+
+    // Remove item button event
+    $(document).on("click", ".remove-item", function(){
+        var removedPrice = parseFloat($(this).prev("p").text().split("-")[1].trim().replace("k", ""));
+        totalPrice -= removedPrice;
+        $(this).closest(".cart-item").remove();
+        $("#totalPrice").text((totalPrice.toFixed(3)) + "K"); // Fixed to 3 decimal places with "K" unit
+    });
+
+    // Checkout button event
+    $("#checkoutBtn").click(function(){
+        // Add your checkout logic here
+        alert("Checkout clicked. Total: $" + totalPrice.toFixed(3) + "K"); // Fixed to 3 decimal places with "K" unit
+        // Reset cart
+        $("#cartItems").empty();
+        $("#totalPrice").text("0.000K"); // Reset total price to zero
+        totalPrice = 0;
+        // Close modal
+        $("#cartModal").modal("hide");
+    });
+});
+document.addEventListener("DOMContentLoaded", function() {
+        var username = localStorage.getItem("username");
+        var userWelcomeDiv = document.querySelector(".user-welcome");
+        var welcomeBtn = document.getElementById("welcomeBtn");
+        var usernamePlaceholder = document.getElementById("usernamePlaceholder");
+
+        if (username) {
+            // Nếu có tên người dùng đã lưu, hiển thị phần tử .user-welcome và thay đổi văn bản của nút
+            userWelcomeDiv.style.display = "block";
+            usernamePlaceholder.innerText = username;
+
+            // Thêm sự kiện click cho nút
+            welcomeBtn.addEventListener("click", function() {
+                alert("Xin chào, " + username + " đã đăng nhập thành công");
+            });
+        } else {
+            // Nếu không có tên người dùng, giữ phần tử .user-welcome ẩn đi
+            userWelcomeDiv.style.display = "none";
+        }
+    });
+ </script>
+  </body>
+</html>
